@@ -1,0 +1,26 @@
+name: RuneForgedLogin
+version: '${project.version}'
+main: com.vortexlabs.runeforgedlogin.RuneForgedLogin
+api-version: '1.20'
+author: Gaurav
+website: https://vortexlabs.dev
+description: Premium Account Security & Astral Limbo Authentication Gateway by VortexLabs | Development.
+
+commands:
+  register:
+    description: Register a new cracked account
+    usage: /register <password> <confirmPassword>
+  login:
+    description: Authenticate into your account
+    usage: /login <password>
+  changepassword:
+    description: Update your account password
+    usage: /changepassword <oldPassword> <newPassword>
+  rfl:
+    description: RuneForgedLogin administration
+    usage: /rfl <setregisterspawn|unregister|forceauth|sessions|ipban|ipunban|status|reload>
+
+permissions:
+  runeforgedlogin.admin:
+    description: Administrative access to RuneForgedLogin
+    default: op

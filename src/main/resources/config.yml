@@ -1,0 +1,72 @@
+# =================================================================================
+#      ____                  _____                              _
+#     |  _ \ _   _ _ __   __| ____|__ _  __ _ _   _ _ __   __ _| |__  ___
+#     | |_) | | | | '_ \ / _ \  _| / _` |/ _` | | | | '_ \ / _` | '_ \/ __|
+#     |  _ <| |_| | | | |  __/ |__| (_| | (_| | |_| | | | | (_| | |_) \__ \
+#     |_| \_\\__,_|_| |_|\___|_____\__,_|\__,_|\__,_|_| |_|\__,_|_.__/|___/
+#
+#     Developed with Passion by Gaurav @ VortexLabs | Development
+#     Premium Account Security & Astral Limbo Authentication Gateway
+# =================================================================================
+
+# Global system settings
+settings:
+  # When enabled, players with official Mojang accounts bypass Limbo entirely.
+  mojang-auto-login: true
+
+  # Storage backend type for player credentials.
+  # Supported: "SQLITE" (Local file) or "MYSQL" (External database)
+  database-type: "SQLITE"
+
+  # MySQL connection details (only used when database-type is "MYSQL")
+  mysql:
+    host: "localhost"
+    port: 3306
+    name: "runeforged"
+    user: "root"
+    password: "password"
+
+  # Time details for active connections
+  session:
+    # How long (in minutes) an IP address stays authenticated after logging out.
+    ip-lock-duration: 15
+
+    # Maximum time (in seconds) a cracked player can sit unauthenticated in Limbo before being kicked.
+    kick-timeout: 30
+
+# Anti-Brute-Force & Bot Mitigation Framework
+security:
+  # Maximum failed /login password attempts allowed before an IP restriction trips.
+  max-failed-attempts: 3
+
+  # Lockout duration (in minutes) for a malicious IP address after failing logins.
+  ip-lockout-time: 10
+
+# Sensory effects applied to unauthenticated players trapped inside the Astral Limbo
+limbo-effects:
+  # Apply heavy cinematic blindness to prevent players from peaking at your spawn layout.
+  blindness-veil: true
+
+  # Ambient sound looped softly in Limbo while waiting for identity verification.
+  # Format: "SOUND_NAME:VOLUME:PITCH"
+  ambient-sound: "BLOCK_AMETHYST_BLOCK_CHIME:0.6:0.8"
+
+# 100% Configurable Message & Visual Translation Pipeline
+# Supports standard '&' colors and modern '&#RRGGBB' Hex color structures.
+messages:
+  prefix: "&#4A00E0&lRuneForged &#8E2DE2&lSecurity &8» &7"
+
+  # Limbo Display Sequence
+  limbo-title: "&#8E2DE2&l\uF0A1 ASTRAL LIMBO \uF0A1"
+  limbo-subtitle: "&fStabilizing Soul Matrix... &e%time%s"
+
+  # Authentication Triggers
+  must-login: "&c&l\u26A0\uFE0F Security Lockout &7| You must authenticate via &e/login <pass> &7first."
+  register-success: "&a&lIdentity Secured! &7Welcome to RuneForged Survival."
+  login-success: "&a&lSession Verified! &7Welcome back, traveler."
+  password-incorrect: "&cInvalid credentials. You have &e%remaining% &cattempts left."
+
+  # Administrative Prompts
+  no-permission: "&cYou do not possess the required clearance (&e%permission%&c) to execute this."
+  player-unregistered: "&aSuccessfully wiped the database security records for &e%player%&a."
+  kick-timeout-reason: "&c&l\u26A0\uFE0F Security Gateway\n\n&7Authentication window elapsed!\n&7Please log in faster next time."
